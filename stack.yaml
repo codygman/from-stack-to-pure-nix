@@ -64,3 +64,11 @@ packages:
 #
 # Allow a newer minor version of GHC than the snapshot specifies
 # compiler-check: newer-minor
+allow-newer: true
+extra-deps:
+  - git: https://github.com/benl23x5/gloss
+    commit: f60e7ba79d86aecb36588e76139a0883e925c617
+    subdir: gloss
+nix:
+  enable: true
+  packages: [libGL libGLU]
