@@ -13,10 +13,7 @@ let
       modifier = drv:
         pkgs.haskell.lib.overrideCabal drv (old: {
           buildDepends = [ pkgs.cabal-install pkgs.haskellPackages.hpack ];
-          preConfigure = builtins.concatStringsSep "\n" [
-            (old.preConfigure or "")
-            "hpack"
-          ];
+          shellHook = "hpack";
         });
     };
 in pkg
