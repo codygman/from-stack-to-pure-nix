@@ -10,5 +10,9 @@ let
     { root = ./.;
       # overrides = self: super: {};
       # source-overrides = {};
+      modifier = drv:
+        pkgs.haskell.lib.overrideCabal drv (old: {
+          buildDepends = [ pkgs.cabal-install ];
+        });
     };
 in pkg
